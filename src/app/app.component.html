@@ -20,42 +20,51 @@
       </tr>
   <tr  *ngFor='let i of theatre'>
     <td>{{i.tname}}<span style="margin-left:2.5em"></span></td>
-    <span style="margin-left:2.5em"></span><button (click)='bookingDetails(i.tname)'>Select</button>
+    <span style="margin-left:2.5em"></span><button (click)='bookingDetails(i.tname)'>Book</button>
     <br>
   </tr>
 </table>
 </div>
 <div>
-  <table>
-    <th><h2>Booking Details</h2></th>
+  <table class="tbl3"><tr>
+    <th><h2>Booking Details</h2></th></tr>
     <tr>
-      <td><h3>Movie : {{smovie}}</h3></td>
+      <td><h3>Movie : {{smovie}} </h3></td>
     </tr>
     <tr>
       <td><h3>Theatre : {{stheatre}}</h3></td>
     </tr>
-    <tr><input type="number" name="phnum" required [(ngModel)]="phonenumber" #phnum="ngModel" pattern="[0-9]{10}">
+    <tr>Mobile : <input type="number" name="phnum" required [(ngModel)]="phone.phonenumber" #phnum="ngModel" pattern="[0-9]{10}">
       <div *ngIf="phnum.invalid && (phnum.dirty || phnum.touched)">
 
         <div *ngIf="phnum.errors.required" class="error">
             
           Phone Number is required.
+        </div>
+        <div *ngIf="phnum.errors.pattern" class="error">
+            
+          Phone Number must have 10 digits.
         </div></div>
-      </tr>
-      <tr><input type="number" name="ticknum" required [(ngModel)]="ticketsnumber" #ticknum="ngModel" pattern="[0-9]{2}">
+      </tr><br>
+      <tr>Number of Tickets : <input type="number" name="ticknum" required [(ngModel)]="tickets.ticketsnumber" #ticknum="ngModel" pattern="[0-9]{1,2}">
         <div *ngIf="ticknum.invalid && (ticknum.dirty || ticknum.touched)">
   
           <div *ngIf="ticknum.errors.required" class="error">
              
             Number of Tickets must be mentioned.
+          </div>
+          <div *ngIf="ticknum.errors.pattern" class="error">
+             
+            Tickets limit has exceeded.
           </div></div>
-        </tr>
+        </tr><br>
         <tr>
-            <button class="button" (click)='booked()'>Book</button>
+            <button class="button" (click)='booked()'>Book Now</button>
         </tr>
   </table>
  
 </div>
 </div>
 <router-outlet></router-outlet>
+
 
