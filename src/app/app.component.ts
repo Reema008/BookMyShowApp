@@ -13,6 +13,8 @@ contentArray:any
 theatre:any
 smovie:any
 stheatre:any
+phone:any={}
+tickets:any={}
   constructor(private http: HttpClient) { }
 
  ngOnInit(){
@@ -31,6 +33,7 @@ getList(){
 
 postList(id,namem){
  this.smovie=namem;
+ this.stheatre="";
   this.http.post('http://localhost:4180/api/theatres', id)
   .subscribe((res) => {
     this.theatre = res;
@@ -42,7 +45,13 @@ postList(id,namem){
 bookingDetails(namet){
   this.stheatre=namet;
 }
+
 booked(){
-  alert("Ticket has been booked successfully")
+  console.log(this.phone);
+  console.log(this.tickets);
+  if((this.stheatre==null)||(this.phone.phonenumber==null)||(this.tickets.ticketsnumber==null))
+  alert("Fill all the fields");
+  else
+  alert("Booking Successful");
 }
 }
