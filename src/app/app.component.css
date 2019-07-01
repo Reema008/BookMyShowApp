@@ -36,3 +36,22 @@
     height:530px;
     padding: 50px 50px 50px 50px;
  }
+ .error{
+    font:13px ;
+    color:red;
+  }
+  .button {
+    display: inline-block;
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 24px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background:maroon;
+    background: -webkit-gradient(linear, left top, left bottom, from(maroon), to(maroon));
+    background: -moz-linear-gradient(top,maroon,maroon);
+    background: linear-gradient(to bottom, maroon,maroon);
+    text-decoration: none;
+  }
