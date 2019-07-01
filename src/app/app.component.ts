@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  HttpClient } from '@angular/common/http';
+
 //import { element } from '@angular/core/src/render3';
 
 @Component({
@@ -40,5 +41,8 @@ postList(id,namem){
 
 bookingDetails(namet){
   this.stheatre=namet;
+}
+booked(){
+  alert("Ticket has been booked successfully")
 }
 }
